@@ -8,7 +8,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@orbs-network/ton-access": "^2.3.3",
     "@tailwindcss/forms": "^0.5.9",
+    "@ton/core": "^0.59.0",
+    "@ton/crypto": "^3.3.0",
+    "@ton/ton": "^15.1.0",
+    "@tonconnect/ui-react": "^2.0.9",
     "@vercel/postgres": "^0.10.0",
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
