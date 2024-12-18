@@ -1,12 +1,28 @@
+"use client";
+
 import AcmeLogo from "@/app/ui/acme-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import styles from "@/app/ui/home.module.css";
 import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
+import Pusher from "pusher-js";
 // import "@twa-dev/sdk";
 
 export default function Page() {
+  const pusherKey = process.env.NEXT_PUBLIC_PUSHER_KEY;
+
+  console.log("PUSHER KEY " + pusherKey);
+  var pusher = new Pusher(pusherKey as string, {
+    cluster: "eu",
+  });
+
+  var channel = pusher.subscribe("my-channel");
+  channel.bind("my-event", function (data: any) {
+    console.log(data);
+    alert(JSON.stringify(data));
+  });
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <h1>KACPER BRZYDALU XD</h1>
