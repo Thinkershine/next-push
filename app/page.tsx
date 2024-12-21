@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import AcmeLogo from "@/app/ui/acme-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -6,26 +6,60 @@ import Link from "next/link";
 import styles from "@/app/ui/home.module.css";
 import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
+import Tetrises from "@/app/ui/tetris/tetrises";
+
 import Pusher from "pusher-js";
+import Lobby from "./ui/tetris/lobby";
 // import "@twa-dev/sdk";
 
 export default function Page() {
-  const pusherKey = process.env.NEXT_PUBLIC_PUSHER_KEY;
+  // const pusherKey = process.env.NEXT_PUBLIC_PUSHER_KEY;
 
-  console.log("PUSHER KEY " + pusherKey);
-  var pusher = new Pusher(pusherKey as string, {
-    cluster: "eu",
-  });
+  // console.log("PUSHER KEY " + pusherKey);
 
-  var channel = pusher.subscribe("my-channel");
-  channel.bind("my-event", function (data: any) {
-    console.log(data);
-    alert(JSON.stringify(data));
-  });
+  // var pusher = new Pusher(pusherKey as string, {
+  //   cluster: "eu",
+  // });
+
+  // Creating Channel is Easy - Just Subscribe to a Channel
+  // If not exists will create it
+  // There are 4 types of channels
+  // 1 - public anyone knowing name can subscribe to it
+  // 2 - private prefix necessary - Control Access
+  // 3 - Private encrypted - should have private-encrypted- prefix "Not even pusher can decrypt messages"
+  // 4 - presence- let you register user info on subscription and let other membets know who is online
+  // var channel = pusher.subscribe("my-channel");
+  // var channel2 = pusher.subscribe("my-channel2");
+  // var channel3 = pusher.subscribe("my-channel3");
+
+  // var channels = pusher.allChannels();
+
+  // // Unsubscribe from channel must be done with the same Pusher instance
+  // // EXAMPLE: // pusher.unsubscribe("my-channel");
+  // // pusher.unsubscribe("my-channel");
+  // pusher.allChannels().map((x) => console.log(x));
+  // // Start receiveing messages on specific event
+  // channel.bind("my-event", function (data: any) {
+  //   console.log(data);
+  //   alert(JSON.stringify(data));
+  // });
+
+  // channel.bind("player-1", function (data: any) {
+  //   console.log(data);
+  //   alert(JSON.stringify(data));
+  // });
+
+  // channel.bind("player-2", function (data: any) {
+  //   console.log(data);
+  //   alert(JSON.stringify(data));
+  // });
 
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <h1>KACPER BRZYDALU XDs</h1>
+      <Lobby />
+      {/* {renderChannels()} */}
+      {/* <Tetrises /> */}
+
       {/* <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
       </div>
