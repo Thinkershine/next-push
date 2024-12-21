@@ -6,8 +6,6 @@ import Link from "next/link";
 import styles from "@/app/ui/home.module.css";
 import { lusitana } from "@/app/ui/fonts";
 import Image from "next/image";
-import Tetrises from "@/app/ui/tetris/tetrises";
-
 import Pusher from "pusher-js";
 import Lobby from "./ui/tetris/lobby";
 // import "@twa-dev/sdk";
@@ -58,7 +56,6 @@ export default function Page() {
     <main className="flex min-h-screen flex-col p-6">
       <Lobby />
       {/* {renderChannels()} */}
-      {/* <Tetrises /> */}
 
       {/* <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
