@@ -1,16 +1,16 @@
-import {
-  renderChannels,
-  createNewChannel,
-  increase,
-  decrease,
-  getChannels,
-} from "@/app/lib/room-manager";
+// import {
+//   renderChannels,
+//   createNewChannel,
+//   increase,
+//   decrease,
+//   getChannels,
+// } from "@/app/lib/room-manager";
 import { Button } from "../button";
 import Channels from "./channels";
 import Tetris from "./tetris";
 
 export default async function Lobby() {
-  let channels = await getChannels();
+  // let channels = await getChannels();
 
   return (
     <div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+
 import { Point } from "./tetris";
 import Keyboard from "./keyboard";
 import TetrisPlayerPortfolio from "./tetrisPlayerPortfolio";
@@ -31,15 +32,6 @@ const CanvasComponent: React.FC<CanvasProps> = ({
 }: CanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const images: Images = [];
-
-  let blockTypes = 8;
-  for (let i = 0; i < blockTypes; i += 1) {
-    let image = new Image();
-    image.src = "/crypto-blocks-graphics/highscores/" + i + ".svg";
-    images[i] = image;
-  }
-
   const [btc, setBtc] = useState(0);
   const [eth, setEth] = useState(0);
   const [trx, setTrx] = useState(0);
@@ -49,7 +41,7 @@ const CanvasComponent: React.FC<CanvasProps> = ({
   const [ltc, setLtc] = useState(0);
   const [score, setScore] = useState(0);
 
-  const DROP_SLOW = 200;
+  const DROP_SLOW = 1000;
   const DROP_FAST = 50;
   let dropCounter = 0;
   let dropInterval = DROP_SLOW;
@@ -388,6 +380,16 @@ const CanvasComponent: React.FC<CanvasProps> = ({
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
+    const images: Images = [];
+
+    let blockTypes = 8;
+    for (let i = 0; i < blockTypes; i += 1) {
+      let image = new Image();
+      image.src = "/crypto-blocks-graphics/highscores/" + i + ".svg";
+      images[i] = image;
+    }
+
     if (canvas) {
       const context = canvas.getContext("2d");
       if (context) {

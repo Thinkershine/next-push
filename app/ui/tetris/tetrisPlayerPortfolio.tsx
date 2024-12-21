@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+"use client";
+
 import { CryptoScore } from "./canvas";
 
 export default function TetrisPlayerPortfolio({
@@ -11,12 +12,6 @@ export default function TetrisPlayerPortfolio({
   xmr,
   score,
 }: CryptoScore) {
-  // const [btcScore, setBtcScore] = useState(btc);
-
-  // useEffect(() => {
-  //   setBtcScore(btc);
-  //   console.log("btcScore", btcScore);
-  // });
   return (
     <div className="rounded-lg bg-gray-50 px-6 pb-4 pt-8">
       <h2>Portfolio</h2>
